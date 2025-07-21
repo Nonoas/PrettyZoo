@@ -2,6 +2,7 @@ open module app.main {
     requires javafx.fxml;
     requires javafx.graphics;
     requires javafx.controls;
+    requires javafx.swing;
     requires org.slf4j;
     requires log4j.slf4j.impl;
     requires org.apache.logging.log4j;
@@ -20,4 +21,5 @@ open module app.main {
     // internal module
     requires core.main;
     requires specification.main;
+    requires jfx.flat.ui;
 }

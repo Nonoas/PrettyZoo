@@ -10,7 +10,7 @@ checkstyleMain.source = "src/main/java"
 
 javafx {
     version = "18.0.2"
-    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.base']
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.base','javafx.swing']
 }
 
 mainClassName = "cc.cc1234.Application"
@@ -132,6 +132,7 @@ dependencies {
     implementation 'org.antlr:antlr4-runtime'
     implementation 'com.jfoenix:jfoenix'
     implementation 'commons-io:commons-io'
+    implementation 'io.github.nonoas:jfx-flat-ui:1.0.2'
 }
 
 configJavafxRun {

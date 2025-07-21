@@ -1,16 +1,16 @@
 package cc.cc1234.app.context;
 
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.BorderPane;
 
 public class RootPaneContext {
 
-    private static volatile StackPane root;
+    private static volatile BorderPane root;
 
-    public static StackPane get() {
+    public static BorderPane get() {
         return root;
     }
 
-    public static void set(StackPane pane) {
+    public static void set(BorderPane pane) {
         root = pane;
     }
 }

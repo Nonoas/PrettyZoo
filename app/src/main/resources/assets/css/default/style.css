@@ -83,6 +83,16 @@
     -fx-text-alignment: center;
     -fx-alignment: center;
     -fx-content-display: center;
+    -fx-padding: 0;
+}
+
+.setting-button .arrow {
+    -fx-padding: 0;
+    -fx-shape: "";
+    -fx-background-color: transparent;
+    -fx-pref-width: 0;
+    -fx-min-width: 0;
+    -fx-max-width: 0;
 }
 
 .create-button {
@@ -1045,4 +1055,13 @@
     -fx-background-color: #FFF;
     -fx-border-width: 0 0 0 0;
     -fx-border-color: #454444;
+}
+
+.main-menu-bar > * {
+    -fx-pref-width: 32px;
+    -fx-pref-height: 32px;
+    -fx-min-width: 32px;
+    -fx-min-height: 32px;
+    -fx-max-width: 32px;
+    -fx-max-height: 32px;
 }

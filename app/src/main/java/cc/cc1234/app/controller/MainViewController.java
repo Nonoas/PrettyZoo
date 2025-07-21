@@ -23,9 +23,19 @@ import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.SplitPane;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -44,7 +54,7 @@ public class MainViewController {
     private static final Logger log = LoggerFactory.getLogger(MainViewController.class);
 
     @FXML
-    private StackPane rootStackPane;
+    private BorderPane rootStackPane;
 
     @FXML
     private SplitPane mainSplitPane;
@@ -126,7 +136,7 @@ public class MainViewController {
         initFontChangeButton();
     }
 
-    public StackPane getRootStackPane() {
+    public BorderPane getRootStackPane() {
         return rootStackPane;
     }
 
@@ -318,7 +328,7 @@ public class MainViewController {
                     if (change.getList().isEmpty()) {
                         mainSplitPane.setDividerPositions(calculateDividerPositions());
                     } else {
-                        mainSplitPane.setDividerPositions(0.25);
+                        mainSplitPane.setDividerPositions(0.1);
                     }
                 });
         prettyZooFacade.loadServerConfigurations(new DefaultConfigurationListener(configurationVO));

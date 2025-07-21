@@ -4,292 +4,145 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
-<AnchorPane fx:id="serverInfoPane" prefHeight="520.0" prefWidth="650.0"
-            styleClass="white-background"
-            xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="cc.cc1234.app.controller.ServerViewController">
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="serverInfoPane" prefHeight="520.0" prefWidth="650.0" styleClass="white-background" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cc.cc1234.app.controller.ServerViewController">
     <children>
-        <GridPane fx:id="serverBasicInfoPane" prefWidth="650.0"
-                  vgap="10.0"
-                  hgap="20.0">
+        <GridPane fx:id="serverBasicInfoPane" hgap="20.0" prefWidth="650.0" vgap="10.0">
             <columnConstraints>
-                <ColumnConstraints halignment="LEFT"
-                                   hgrow="ALWAYS"
-                                   minWidth="240.0"
-                                   maxWidth="-Infinity"
-                                   prefWidth="650.0"/>
+                <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="240.0" prefWidth="650.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints valignment="CENTER"/>
+                <RowConstraints valignment="CENTER" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
             </rowConstraints>
 
-            <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="30">
+            <HBox spacing="30" GridPane.columnIndex="0" GridPane.rowIndex="0">
                 <VBox spacing="30">
                     <HBox spacing="10">
-                        <JFXTextField fx:id="zkHost"
-                                      labelFloat="false"
-                                      prefHeight="26.0"
-                                      prefWidth="160.0"
-                                      promptText="zookeeper host"/>
-                        <Label text=":"
-                               styleClass="black-text"
-                               AnchorPane.leftAnchor="200.0"
-                               AnchorPane.topAnchor="30.0"/>
-                        <JFXTextField fx:id="zkPort" labelFloat="false"
-                                      prefHeight="26.0"
-                                      prefWidth="80.0"
-                                      promptText="port"
-                                      AnchorPane.leftAnchor="210.0"
-                                      AnchorPane.topAnchor="25.0"/>
+                        <JFXTextField fx:id="zkHost" labelFloat="false" prefHeight="26.0" prefWidth="160.0" promptText="zookeeper host" />
+                        <Label styleClass="black-text" text=":" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="30.0" />
+                        <JFXTextField fx:id="zkPort" labelFloat="false" prefHeight="26.0" prefWidth="80.0" promptText="port" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="25.0" />
                     </HBox>
-                    <JFXTextField fx:id="zkAlias"
-                                  prefHeight="25.0"
-                                  prefWidth="260.0"
-                                  promptText="%server.input.alias.prompt"/>
+                    <JFXTextField fx:id="zkAlias" prefHeight="25.0" prefWidth="260.0" promptText="%server.input.alias.prompt" />
                 </VBox>
-                <JFXTextArea fx:id="aclTextArea"
-                             styleClass="acl-textarea"
-                             prefHeight="78.0"
-                             prefWidth="240.0"/>
+                <JFXTextArea fx:id="aclTextArea" prefHeight="78.0" prefWidth="240.0" styleClass="acl-textarea" />
             </HBox>
 
-            <HBox GridPane.columnIndex="0" GridPane.rowIndex="2"
-                  spacing="10">
+            <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="2">
                 <padding>
-                    <Insets left="5.0" right="5.0"/>
+                    <Insets left="5.0" right="5.0" />
                 </padding>
                 <children>
-                    <JFXToggleButton fx:id="sshTunnelCheckbox"
-                                     mnemonicParsing="false"
-                                     prefHeight="18.0"
-                                     size="8.0"
-                                     text="Use SSH Tunnel"
-                    />
-                    <JFXToggleButton fx:id="connectionConfigCheckbox"
-                                     mnemonicParsing="false"
-                                     prefHeight="18.0"
-                                     size="8.0"
-                                     text="Connection Timeout"
-                                     AnchorPane.leftAnchor="200.0"
-                                     AnchorPane.topAnchor="124.0"/>
+                    <JFXToggleButton fx:id="sshTunnelCheckbox" mnemonicParsing="false" prefHeight="18.0" size="8.0" text="Use SSH Tunnel" />
+                    <JFXToggleButton fx:id="connectionConfigCheckbox" mnemonicParsing="false" prefHeight="18.0" size="8.0" text="Connection Timeout" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="124.0" />
                 </children>
             </HBox>
 
-            <JFXTabPane fx:id="extendConfigTabPane"
-                        prefHeight="300"
-                        maxHeight="-Infinity"
-                        maxWidth="-Infinity"
-                        GridPane.rowIndex="3"
-                        GridPane.columnIndex="0">
+            <JFXTabPane fx:id="extendConfigTabPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300" GridPane.columnIndex="0" GridPane.rowIndex="3">
                 <Tab fx:id="tunnelConfigTab" text="SSH Tunnel">
-                    <GridPane hgap="20.0"
-                              vgap="10.0"
-                              prefWidth="618.0"
-                              maxHeight="-Infinity"
-                              maxWidth="-Infinity"
-                              AnchorPane.bottomAnchor="10.0"
-                              AnchorPane.leftAnchor="4.0"
-                              AnchorPane.rightAnchor="4.0"
-                              AnchorPane.topAnchor="10.0">
+                    <GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="618.0" vgap="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="10.0">
                         <columnConstraints>
-                            <ColumnConstraints halignment="CENTER"
-                                               hgrow="ALWAYS"
-                                               minWidth="240.0"
-                                               maxWidth="-Infinity"
-                                               prefWidth="280.0"/>
-                            <ColumnConstraints hgrow="ALWAYS"
-                                               minWidth="50.0"
-                                               prefWidth="50.0"
-                                               maxWidth="-Infinity"/>
-                            <ColumnConstraints halignment="CENTER"
-                                               hgrow="ALWAYS"
-                                               minWidth="220.0"
-                                               prefWidth="250.0"
-                                               maxWidth="-Infinity"/>
+                            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="-Infinity" minWidth="240.0" prefWidth="280.0" />
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="40.0" prefWidth="40.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="200.0" />
                         </columnConstraints>
                         <rowConstraints>
-                            <RowConstraints valignment="CENTER"
-                                            maxHeight="-Infinity"
-                                            vgrow="ALWAYS"/>
+                            <RowConstraints maxHeight="-Infinity" valignment="CENTER" vgrow="ALWAYS" />
                         </rowConstraints>
                         <children>
-                            <GridPane maxHeight="-Infinity"
-                                      GridPane.columnIndex="0"
-                                      vgap="12"
-                                      style="-fx-border-color: #ddd;">
+                            <GridPane maxHeight="-Infinity" style="-fx-border-color: #ddd;" vgap="12" GridPane.columnIndex="0">
                                 <columnConstraints>
-                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="220.0"/>
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="200.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                    <RowConstraints prefHeight="60.0"
-                                                    valignment="CENTER"
-                                                    vgrow="ALWAYS"/>
-                                    <RowConstraints prefHeight="50.0"
-                                                    valignment="CENTER"
-                                                    maxHeight="-Infinity"
-                                                    vgrow="ALWAYS"/>
-                                    <RowConstraints prefHeight="70.0"
-                                                    valignment="CENTER"
-                                                    maxHeight="-Infinity"
-                                                    vgrow="ALWAYS"/>
-                                    <RowConstraints prefHeight="70.0"
-                                                    valignment="CENTER"
-                                                    maxHeight="-Infinity"
-                                                    vgrow="ALWAYS"/>
+                                    <RowConstraints prefHeight="60.0" valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="50.0" valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="70.0" valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="70.0" valignment="CENTER" vgrow="ALWAYS" />
+                           <RowConstraints />
                                 </rowConstraints>
                                 <children>
-                                    <Text strokeType="OUTSIDE"
-                                          strokeWidth="0.0"
-                                          text="SSH Server"
-                                          styleClass="black-text"
-                                          GridPane.columnIndex="0"
-                                          GridPane.rowIndex="0"/>
-                                    <HBox GridPane.columnIndex="0"
-                                          GridPane.rowIndex="1">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="SSH Server" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <HBox GridPane.columnIndex="0" GridPane.rowIndex="1">
                                         <children>
-                                            <JFXTextField fx:id="sshServer"
-                                                          prefWidth="144.0"
-                                                          maxHeight="-Infinity"
-                                                          promptText="ssh server"/>
+                                            <JFXTextField fx:id="sshServer" maxHeight="-Infinity" prefWidth="144.0" promptText="ssh server" />
 
-                                            <Label prefHeight="23.0" text=":" styleClass="black-text"/>
-                                            <JFXTextField fx:id="sshServerPort"
-                                                          alignment="CENTER"
-                                                          maxHeight="-Infinity"
-                                                          prefWidth="60.0"
-                                                          promptText="port"/>
+                                            <Label prefHeight="23.0" styleClass="black-text" text=":" />
+                                            <JFXTextField fx:id="sshServerPort" alignment="CENTER" maxHeight="-Infinity" prefWidth="60.0" promptText="port" />
                                         </children>
                                     </HBox>
 
-                                    <JFXTextField fx:id="sshUsername"
-                                                  prefWidth="206"
-                                                  maxWidth="-Infinity"
-                                                  promptText="%server.input.ssh.username.prompt"
-                                                  GridPane.columnIndex="0"
-                                                  GridPane.rowIndex="2"/>
+                                    <JFXTextField fx:id="sshUsername" maxWidth="-Infinity" prefWidth="206" promptText="%server.input.ssh.username.prompt" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                                     <HBox GridPane.columnIndex="0" GridPane.rowIndex="3">
-                                        <JFXPasswordField fx:id="sshPassword"
-                                                          prefWidth="172.0"
-                                                          promptText="%server.input.ssh.password.prompt"/>
+                                        <JFXPasswordField fx:id="sshPassword" prefWidth="172.0" promptText="%server.input.ssh.password.prompt" />
 
-                                        <JFXButton fx:id="sshPasswordVisibleButton"
-                                                   prefWidth="34.0"
-                                                   styleClass="visible-button"
-                                                   text="visible"/>
+                                        <JFXButton fx:id="sshPasswordVisibleButton" prefWidth="34.0" styleClass="visible-button" text="visible" />
                                     </HBox>
                                     <HBox GridPane.columnIndex="0" GridPane.rowIndex="4">
-                                        <JFXTextField fx:id="sshKeyFileField"
-                                                      editable="true"
-                                                      prefWidth="172"
-                                                      maxWidth="-Infinity"
-                                                      promptText="%server.input.ssh.key-file.prompt"
-                                                      GridPane.columnIndex="0"
-                                                      GridPane.rowIndex="4"/>
-                                        <JFXButton fx:id="sshKeyFileClearButton"
-                                                   prefWidth="34.0"
-                                                   styleClass="clear-button"/>
+                                        <JFXTextField fx:id="sshKeyFileField" editable="true" maxWidth="-Infinity" prefWidth="172" promptText="%server.input.ssh.key-file.prompt" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                        <JFXButton fx:id="sshKeyFileClearButton" prefWidth="34.0" styleClass="clear-button" />
                                     </HBox>
 
                                 </children>
                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                 </padding>
                             </GridPane>
 
-                            <ProgressBar fx:id="sshTunnelProgressBarTo" prefHeight="18.0" prefWidth="75.0"
-                                         progress="0.0" GridPane.columnIndex="1"/>
-                            <AnchorPane prefHeight="140.0" prefWidth="230.0" style="-fx-border-color: #ddd;"
-                                        GridPane.columnIndex="2">
+                            <ProgressBar fx:id="sshTunnelProgressBarTo" prefHeight="16.0" prefWidth="75.0" progress="0.0" GridPane.columnIndex="1" />
+                            <AnchorPane prefHeight="246.0" prefWidth="272.0" style="-fx-border-color: #ddd;" GridPane.columnIndex="2">
                                 <children>
-                                    <JFXTextField fx:id="remoteServer"
-                                                  layoutX="33.0"
-                                                  layoutY="73.0"
-                                                  prefHeight="23.0"
-                                                  prefWidth="80.0"
-                                                  promptText="%server.input.ssh.remote-server.prompt"
-                                                  AnchorPane.leftAnchor="22.0"
-                                                  AnchorPane.rightAnchor="100.0"
-                                                  AnchorPane.topAnchor="72.0"/>
-                                    <Text layoutX="70.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                          text="Remote Zookeeper Server"
-                                          styleClass="black-text"
-                                          AnchorPane.leftAnchor="22.0"
-                                          AnchorPane.topAnchor="20.0"/>
-                                    <Label layoutX="154.0" layoutY="75.0" prefHeight="23.0" text=":"
-                                           styleClass="black-text"
-                                           AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="71.0"/>
-                                    <JFXTextField fx:id="remoteServerPort" alignment="CENTER"
-                                                  layoutX="170.0" layoutY="72.0" prefHeight="23.0"
-                                                  prefWidth="70.0" promptText="%server.input.ssh.remote-port.prompt"
-                                                  AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="71.0"/>
+                                    <JFXTextField fx:id="remoteServer" layoutX="33.0" layoutY="73.0" prefHeight="23.0" prefWidth="80.0" promptText="%server.input.ssh.remote-server.prompt" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="72.0" />
+                                    <Text layoutX="70.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="black-text" text="Remote Zookeeper Server" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="154.0" layoutY="75.0" prefHeight="23.0" styleClass="black-text" text=":" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="71.0" />
+                                    <JFXTextField fx:id="remoteServerPort" alignment="CENTER" layoutX="170.0" layoutY="72.0" prefHeight="23.0" prefWidth="70.0" promptText="%server.input.ssh.remote-port.prompt" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="71.0" />
                                 </children>
                             </AnchorPane>
                         </children>
                         <padding>
-                            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                            <Insets bottom="15.0" left="5.0" right="5.0" top="15.0" />
                         </padding>
                     </GridPane>
                 </Tab>
                 <Tab fx:id="connectionConfigTab" text="Connection Config">
-                    <GridPane fx:id="connectionConfigPane"
-                              vgap="10.0"
-                              prefWidth="620">
+                    <GridPane fx:id="connectionConfigPane" prefWidth="620" vgap="10.0">
                         <columnConstraints>
-                            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0"/>
+                            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" />
                         </columnConstraints>
                         <rowConstraints>
-                            <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="30.0"
-                                            vgrow="SOMETIMES"/>
-                            <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="30.0"
-                                            vgrow="SOMETIMES"/>
-                            <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="30.0"
-                                            vgrow="SOMETIMES"/>
-                            <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="30.0"
-                                            vgrow="SOMETIMES"/>
+                            <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                         <children>
-                            <JFXTextField fx:id="connectionTimeoutInput" prefWidth="80.0"
-                                          labelFloat="true"
-                                          promptText="connection timeout mill seconds"
-                                          GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                            <JFXTextField fx:id="sessionTimeoutInput" prefWidth="80.0"
-                                          labelFloat="true"
-                                          promptText="session timeout mill seconds"
-                                          GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                            <JFXTextField fx:id="maxRetriesInput" prefWidth="80.0"
-                                          labelFloat="true"
-                                          promptText="max retry times"
-                                          GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                            <JFXTextField fx:id="retryIntervalTimeInput" prefWidth="80.0"
-                                          labelFloat="true"
-                                          promptText="retry interval time mill seconds"
-                                          GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                            <JFXTextField fx:id="connectionTimeoutInput" labelFloat="true" prefWidth="80.0" promptText="connection timeout mill seconds" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <JFXTextField fx:id="sessionTimeoutInput" labelFloat="true" prefWidth="80.0" promptText="session timeout mill seconds" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <JFXTextField fx:id="maxRetriesInput" labelFloat="true" prefWidth="80.0" promptText="max retry times" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <JFXTextField fx:id="retryIntervalTimeInput" labelFloat="true" prefWidth="80.0" promptText="retry interval time mill seconds" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                         </children>
                         <padding>
-                            <Insets bottom="10.0" left="25.0" right="25.0" top="25.0"/>
+                            <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
                         </padding>
                     </GridPane>
                 </Tab>
             </JFXTabPane>
 
-            <HBox fx:id="buttonHBox" alignment="CENTER_RIGHT" minHeight="30.0" spacing="10.0"
-                  GridPane.rowIndex="4"
-                  GridPane.columnIndex="0">
-                <JFXButton fx:id="saveButton" mnemonicParsing="false" styleClass="v-button"
-                           text="%server.button.save"/>
-                <JFXButton fx:id="connectButton" mnemonicParsing="false" styleClass="v-button"
-                           text="%server.button.connect"/>
-                <JFXButton fx:id="deleteButton" mnemonicParsing="false" styleClass="v-button"
-                           text="%server.button.delete"/>
+            <HBox fx:id="buttonHBox" alignment="CENTER_RIGHT" minHeight="30.0" spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                <JFXButton fx:id="saveButton" mnemonicParsing="false" styleClass="v-button" text="%server.button.save" />
+                <JFXButton fx:id="connectButton" mnemonicParsing="false" styleClass="v-button" text="%server.button.connect" />
+                <JFXButton fx:id="deleteButton" mnemonicParsing="false" styleClass="v-button" text="%server.button.delete" />
             </HBox>
             <padding>
-                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
             </padding>
         </GridPane>
 
-        <JFXButton fx:id="closeButton" layoutX="620.0" layoutY="14.0" mnemonicParsing="false" styleClass="v-button"
-                   text="X" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0"/>
+        <JFXButton fx:id="closeButton" layoutX="620.0" layoutY="14.0" mnemonicParsing="false" styleClass="v-button" text="X" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
 
     </children>
 </AnchorPane>

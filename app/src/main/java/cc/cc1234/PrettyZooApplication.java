@@ -1,21 +1,20 @@
 package cc.cc1234;
 
+import cc.cc1234.app.MainStage;
 import cc.cc1234.app.context.HostServiceContext;
 import cc.cc1234.app.context.PrimaryStageContext;
-import cc.cc1234.app.controller.MainViewController;
 import cc.cc1234.app.facade.PrettyZooFacade;
-import cc.cc1234.app.util.FXMLs;
 import cc.cc1234.specification.config.PrettyZooConfigRepository;
+import github.nonoas.jfx.flat.ui.theme.LightTheme;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Taskbar;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collections;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -60,25 +59,20 @@ public class PrettyZooApplication extends Application {
     }
 
     private void v2(Stage primaryStage) {
-        PrimaryStageContext.set(primaryStage);
+        primaryStage.close();
+        MainStage mainStage = MainStage.getInstance();
+        PrimaryStageContext.set(mainStage.getStage());
         HostServiceContext.set(getHostServices());
-        MainViewController controller = FXMLs.getController("fxml/MainView.fxml");
-        final StackPane stackPane = controller.getRootStackPane();
 
-        Scene scene = new Scene(stackPane);
         String theme = facade.getThemeFromConfig();
-        scene.getStylesheets().add("assets/css/default/style.css");
+        setUserAgentStylesheet(new LightTheme().getUserAgentStylesheet());
+        mainStage.addStylesheet("assets/css/default/style.css");
         if (Objects.equals(theme, PrettyZooConfigRepository.THEME_DARK)) {
-            scene.getStylesheets().add("assets/css/dark/style.css");
+            mainStage.addStylesheet("assets/css/dark/style.css");
         }
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("PrettyZoo");
-        getIconStream().ifPresent(stream -> primaryStage.getIcons().add(new Image(stream)));
-        primaryStage.setOnShown(e -> {
-            controller.checkForUpdate();
-            controller.bindShortcutKey();
-        });
-        primaryStage.show();
+        mainStage.setTitle("PrettyZoo");
+        getIconStream().ifPresent(stream -> mainStage.addIcons(Collections.singleton(new Image(stream))));
+        mainStage.show();
     }
 
 }
