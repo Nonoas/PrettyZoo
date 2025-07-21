@@ -1,0 +1,7 @@
+.idea/**
+.gradle/**
+.DS_Store
+**/build/**
+**/classes/**
+**/out/**
+lombok.config

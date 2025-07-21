@@ -1,0 +1,5 @@
+rootProject.name = 'PrettyZoo'
+include 'app'
+include 'core'
+include 'specification'
+include 'specification-impl'

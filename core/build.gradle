@@ -1,0 +1,19 @@
+compileJava {
+    inputs.property("moduleName", "core.main")
+    doFirst {
+        options.compilerArgs = [
+                '--module-path', classpath.asPath,
+        ]
+        classpath = files()
+    }
+}
+
+dependencies {
+    api project(':specification-impl')
+    api project(':specification')
+
+    implementation 'com.google.guava:guava'
+    implementation group: 'com.hierynomus', name: 'sshj'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
