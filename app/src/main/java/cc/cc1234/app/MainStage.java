@@ -18,8 +18,8 @@ public class MainStage extends AppStage{
     private MainStage() {
         setMinWidth(650);
         setMinHeight(540);
-        getStage().setWidth(650);
-        getStage().setHeight(540);
+        getStage().setWidth(720);
+        getStage().setHeight(560);
 
         MainViewController controller = FXMLs.getController("fxml/MainView.fxml");
         final BorderPane stackPane = controller.getRootStackPane();

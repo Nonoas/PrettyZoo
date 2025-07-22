@@ -62,6 +62,7 @@
     -fx-background-size: 18;
     -fx-pref-height: 26;
     -fx-pref-width: 26;
+    -fx-min-width: 26;
     -fx-text-alignment: center;
     -fx-alignment: center;
     -fx-content-display: center;
