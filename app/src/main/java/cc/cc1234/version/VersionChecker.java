@@ -21,7 +21,7 @@ public class VersionChecker {
     public static void hasNewVersion(BiConsumer<String, String> newVersionAction,
                                      Runnable noUpdateAction,
                                      Consumer<Throwable> exceptionally) {
-        var request = HttpRequest.newBuilder(URI.create("https://api.github.com/repos/vran-dev/PrettyZoo/releases/latest"))
+        var request = HttpRequest.newBuilder(URI.create("https://api.github.com/repos/Nonoas/PrettyZoo/releases/latest"))
                 .build();
         var client = HttpClient.newHttpClient();
         client.sendAsync(request, HttpResponse.BodyHandlers.ofString())

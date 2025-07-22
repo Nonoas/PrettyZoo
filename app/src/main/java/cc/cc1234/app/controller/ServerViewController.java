@@ -18,6 +18,7 @@ import cc.cc1234.app.vo.ServerStatus;
 import cc.cc1234.specification.listener.ServerListener;
 import com.jfoenix.controls.*;
 import com.jfoenix.validation.NumberValidator;
+import github.nonoas.jfx.flat.ui.control.Switch;
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -51,10 +52,10 @@ public class ServerViewController {
     private GridPane serverBasicInfoPane;
 
     @FXML
-    private JFXToggleButton sshTunnelCheckbox;
+    private Switch sshTunnelCheckbox;
 
     @FXML
-    private JFXToggleButton connectionConfigCheckbox;
+    private Switch connectionConfigCheckbox;
 
     @FXML
     private JFXTabPane extendConfigTabPane;
