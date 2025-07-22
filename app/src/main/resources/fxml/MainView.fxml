@@ -10,9 +10,9 @@
    <center>
         <SplitPane fx:id="mainSplitPane" dividerPositions="0.01" BorderPane.alignment="CENTER">
             <items>
-            <StackPane maxWidth="320.0" minWidth="128.0" prefWidth="200.0" styleClass="white-background">
+            <StackPane maxWidth="320.0" minWidth="180.0" prefWidth="200.0" styleClass="white-background">
                <children>
-                        <ListView fx:id="serverListView" prefWidth="200.0">
+                        <ListView fx:id="serverListView" maxWidth="1.7976931348623157E308">
                         </ListView>
                </children>
             </StackPane>
@@ -21,10 +21,10 @@
                         <AnchorPane StackPane.alignment="CENTER">
                             <children>
                                 <Label fx:id="prettyZooLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="160.0" prefWidth="199.0" styleClass="prettyZoo" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
-                                <Hyperlink fx:id="prettyZooLink" alignment="CENTER" contentDisplay="CENTER" layoutX="232.0" layoutY="303.0" text="https://github.com/vran-dev/PrettyZoo" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
-                                    <font>
-                                        <Font size="17.0" />
-                                    </font>
+                                <Hyperlink fx:id="prettyZooLink" alignment="CENTER" contentDisplay="CENTER" layoutX="232.0" layoutY="303.0" text="https://github.com/Nonoas/PrettyZoo" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="250.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                                 </Hyperlink>
                             </children>
                             <StackPane.margin>
